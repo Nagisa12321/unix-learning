@@ -20,14 +20,6 @@ foreach(CHAPTER ${CHAPTERS})
         get_filename_component(EXEC_NAME "${SOURCE}" NAME)
         add_executable(${EXEC_NAME} ${C_SRC_CODE})
 
-        # # include util libraries
-        # target_link_libraries(utils)
-
-        # # include parh  
-        # target_include_directories(${EXEC_NAME} 
-        #     PUBLIC ${PROJECT_SOURCE_DIR}/utils
-        # )
-
         target_link_libraries(${EXEC_NAME} 
             sub::utils
         )
