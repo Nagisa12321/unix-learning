@@ -18,3 +18,38 @@
 
 #### 1.5
 - power(2, 31) / 100 / 60 / 60 / 24 = 248.55134814814812 天
+
+### chapter2
+
+#### 2.1 
+- 采用宏来编写: 
+```c
+#ifndef xxx
+#define xxx
+
+// some define
+
+#endif
+```
+
+#### 2.2
+- clock_t       : unsigned long
+- comp_t
+- dev_t
+- fd_set
+- fpos_t
+- git_t
+- ino_t
+- mode_t
+- nlink_t
+- off_t
+- pid_t
+- pthread_t
+- ptrdiff_t
+- rlim_t
+- sig_atomic_t
+- sigset_t
+- size_t
+- ssize_t
+- time_t
+- wchar_t
