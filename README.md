@@ -34,22 +34,19 @@
 
 #### 2.2
 - clock_t       : unsigned long
-- comp_t
-- dev_t
-- fd_set
-- fpos_t
-- git_t
-- ino_t
-- mode_t
-- nlink_t
-- off_t
-- pid_t
-- pthread_t
-- ptrdiff_t
-- rlim_t
-- sig_atomic_t
-- sigset_t
-- size_t
-- ssize_t
-- time_t
-- wchar_t
+- dev_t         : int
+- fpos_t        : long long
+- gid_t         : unsigned int
+- ino_t         : unsigned long long
+- mode_t        : unsigned short
+- nlink_t       : unsigned short
+- off_t         : long long
+- pid_t         : int
+- ptrdiff_t     : long int
+- size_t        : long unsigned int
+- ssize_t       : long
+- time_t        : long
+- wchar_t       : int
+
+#### 2.3
+- [code](./src/chapter2/open_max/open_max.c)
