@@ -18,6 +18,7 @@ int main() {
     if (lseek(fd, 16384, SEEK_SET) == -1) {
         err_quit("lseek error");
     }
+
     // 
     // offset now 16384
     // 

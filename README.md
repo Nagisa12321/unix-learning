@@ -50,3 +50,7 @@
 
 #### 2.3
 - [code](./src/chapter2/open_max/open_max.c)
+
+### chapter 3
+#### difference between dup and open? 
+- dup只是复制文件描述符， 没有复制文件表项， 因此两个文件描述符的文件表项是同一个，所以他们的文件打开标志是相同的， 文件偏移量也是相同的。 因此当你使用lseek的时候， 两个文件描述符指向的文件都会偏移一段距离。open会创建新的文件表项， 因此效果完全不一样。
