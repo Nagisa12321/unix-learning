@@ -55,3 +55,31 @@
 
 #### 3.1 
 - 是带缓冲机制的。 只是不在用户级别的缓冲而已。举个例子：write。会将相应磁盘块编号放进系统的写队列之中然后返回。唯独加上fsync会等待写磁盘结束在返回。可以参考电梯算法内核写数据是按照一定规律写的。不然会导致写效率慢。另外还有写log机制。这种跟文件系统关联极为密切。
+
+#### 3.2 
+- [code](./src/chapter3/dup2/dup2.c)
+
+#### 3.3 
+- F_SETFD: 只会影响fd1本身
+- F_SETFL: 涉及文件状态标志的更改, 会影响指向相同文件描述表的文件描述符, 因此fd1, fd2均会被影响
+- [code](./src/chapter3/fd_fl_test/fdfl.c)
+
+#### 3.4
+- 这段代码的目的是: 把程序的输入，输出，错误流都重定向到fd之上
+- if (fd > 2) 才会关闭流。因为我们不想随便关闭0，1，2.
+
+#### 3.5 
+```
+./a.out > outfile 2>&1
+```
+- 执行a.out, 把标准输出重定向到outfile对应fd`dup2(out_fd, stdout)`, 因此现在1就是out_fd, 然后重定向2到1, 因此现在错误流也会重定向到outfile。
+```
+./a.out 2>&1 > outfile 
+```
+- 执行a.out, 先把标准错误流重定向到标准输出`dup2(stdout, stderr)`, 然后再把标准输出重定向到outfile, 但是stderr原本的fd还是指向标准输出, 因此会把stdout的输出输入到文件中, 把原来stderr的输出以标准输出的形式输出到终端之上。
+- [code](./src/chapter3/stdout_stderror/outanderror.c)
+
+#### 3.6
+- 答案是可以在任意位置读。但是只能在尾端写
+- [code](./src/chapter3/test_lseek/lseek.c)
+
